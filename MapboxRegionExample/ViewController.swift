@@ -22,9 +22,9 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         let mapView = MGLMapView(frame: view.bounds)
         mapView.delegate = self
         mapView.centerCoordinate = centerCoordinate
-        mapView.minimumZoomLevel = 12.0
+        mapView.minimumZoomLevel = 8.0
         mapView.maximumZoomLevel = 20.0
-        mapView.zoomLevel = 14.0
+        mapView.zoomLevel = 12.0
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         mapView.isPitchEnabled = false
         mapView.isRotateEnabled = false
@@ -32,6 +32,40 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         mapView.showsUserLocation = true
         
         view.addSubview(mapView)
+    }
+    
+    // MARK: - MGLMapViewDelegate
+    
+    func mapViewRegionIsChanging(_ mapView: MGLMapView) {
+        var adjusted = mapView.visibleCoordinateBounds
+        
+        if mapView.visibleCoordinateBounds.ne.latitude > outerBounds.ne.latitude {
+            let diff = mapView.visibleCoordinateBounds.ne.latitude - outerBounds.ne.latitude
+            adjusted.ne.latitude = outerBounds.ne.latitude
+            adjusted.sw.latitude = fmax(mapView.visibleCoordinateBounds.sw.latitude - diff, outerBounds.sw.latitude)
+        }
+        
+        if mapView.visibleCoordinateBounds.sw.latitude < outerBounds.sw.latitude {
+            let diff = outerBounds.sw.latitude - mapView.visibleCoordinateBounds.sw.latitude
+            adjusted.sw.latitude = outerBounds.sw.latitude
+            adjusted.ne.latitude = fmin(mapView.visibleCoordinateBounds.ne.latitude + diff, outerBounds.ne.latitude)
+        }
+        
+        if mapView.visibleCoordinateBounds.sw.longitude < outerBounds.sw.longitude {
+            let diff = outerBounds.sw.longitude - mapView.visibleCoordinateBounds.sw.longitude
+            adjusted.sw.longitude = outerBounds.sw.longitude
+            adjusted.ne.longitude = fmin(mapView.visibleCoordinateBounds.ne.longitude + diff, outerBounds.ne.longitude)
+        }
+
+        if mapView.visibleCoordinateBounds.ne.longitude > outerBounds.ne.longitude {
+            let diff = mapView.visibleCoordinateBounds.ne.longitude - outerBounds.ne.longitude;
+            adjusted.ne.longitude = outerBounds.ne.longitude
+            adjusted.sw.longitude = fmax(mapView.visibleCoordinateBounds.sw.longitude - diff, outerBounds.sw.longitude)
+        }
+        
+        if !MGLCoordinateBoundsEqualToCoordinateBounds(mapView.visibleCoordinateBounds, adjusted) {
+            mapView.setVisibleCoordinateBounds(adjusted, animated: false)
+        }
     }
 
 }
