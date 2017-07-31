@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		686606F3CCC5A267786026D8 /* Pods_MapboxRegionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9142E8EE0FC90A6CDB273652 /* Pods_MapboxRegionExample.framework */; };
 		DAC5D2521F2FBBEB00C13AD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC5D2511F2FBBEB00C13AD5 /* AppDelegate.swift */; };
 		DAC5D2541F2FBBEB00C13AD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC5D2531F2FBBEB00C13AD5 /* ViewController.swift */; };
 		DAC5D2571F2FBBEB00C13AD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC5D2551F2FBBEB00C13AD5 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		193274691998FED0D02EAC4A /* Pods-MapboxRegionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapboxRegionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapboxRegionExample/Pods-MapboxRegionExample.release.xcconfig"; sourceTree = "<group>"; };
+		53D666EE5F8C346059EC37A8 /* Pods-MapboxRegionExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapboxRegionExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapboxRegionExample/Pods-MapboxRegionExample.debug.xcconfig"; sourceTree = "<group>"; };
+		9142E8EE0FC90A6CDB273652 /* Pods_MapboxRegionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapboxRegionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC5D24E1F2FBBEB00C13AD5 /* MapboxRegionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapboxRegionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC5D2511F2FBBEB00C13AD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAC5D2531F2FBBEB00C13AD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686606F3CCC5A267786026D8 /* Pods_MapboxRegionExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B02D12F77EF68A8D010A311 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9142E8EE0FC90A6CDB273652 /* Pods_MapboxRegionExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8621648CFC1C038EE91193EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53D666EE5F8C346059EC37A8 /* Pods-MapboxRegionExample.debug.xcconfig */,
+				193274691998FED0D02EAC4A /* Pods-MapboxRegionExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DAC5D2451F2FBBEB00C13AD5 = {
 			isa = PBXGroup;
 			children = (
 				DAC5D2501F2FBBEB00C13AD5 /* MapboxRegionExample */,
 				DAC5D24F1F2FBBEB00C13AD5 /* Products */,
+				8621648CFC1C038EE91193EE /* Pods */,
+				1B02D12F77EF68A8D010A311 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +78,30 @@
 		DAC5D2501F2FBBEB00C13AD5 /* MapboxRegionExample */ = {
 			isa = PBXGroup;
 			children = (
-				DAC5D2511F2FBBEB00C13AD5 /* AppDelegate.swift */,
-				DAC5D2531F2FBBEB00C13AD5 /* ViewController.swift */,
+				DAC5D2641F2FBBFB00C13AD5 /* Classes */,
+				DAC5D2631F2FBBF300C13AD5 /* Resources */,
+			);
+			path = MapboxRegionExample;
+			sourceTree = "<group>";
+		};
+		DAC5D2631F2FBBF300C13AD5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				DAC5D2551F2FBBEB00C13AD5 /* Main.storyboard */,
 				DAC5D2581F2FBBEB00C13AD5 /* Assets.xcassets */,
 				DAC5D25A1F2FBBEB00C13AD5 /* LaunchScreen.storyboard */,
 				DAC5D25D1F2FBBEB00C13AD5 /* Info.plist */,
 			);
-			path = MapboxRegionExample;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DAC5D2641F2FBBFB00C13AD5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DAC5D2511F2FBBEB00C13AD5 /* AppDelegate.swift */,
+				DAC5D2531F2FBBEB00C13AD5 /* ViewController.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +111,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAC5D2601F2FBBEB00C13AD5 /* Build configuration list for PBXNativeTarget "MapboxRegionExample" */;
 			buildPhases = (
+				4F060298BD93418A8DC7A166 /* [CP] Check Pods Manifest.lock */,
 				DAC5D24A1F2FBBEB00C13AD5 /* Sources */,
 				DAC5D24B1F2FBBEB00C13AD5 /* Frameworks */,
 				DAC5D24C1F2FBBEB00C13AD5 /* Resources */,
+				6057D382A79814178D3F23F0 /* [CP] Embed Pods Frameworks */,
+				372106304681AC9DDE101E36 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +173,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		372106304681AC9DDE101E36 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapboxRegionExample/Pods-MapboxRegionExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F060298BD93418A8DC7A166 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6057D382A79814178D3F23F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapboxRegionExample/Pods-MapboxRegionExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DAC5D24A1F2FBBEB00C13AD5 /* Sources */ = {
@@ -258,6 +349,7 @@
 		};
 		DAC5D2611F2FBBEB00C13AD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53D666EE5F8C346059EC37A8 /* Pods-MapboxRegionExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MapboxRegionExample/Info.plist;
@@ -270,6 +362,7 @@
 		};
 		DAC5D2621F2FBBEB00C13AD5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 193274691998FED0D02EAC4A /* Pods-MapboxRegionExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MapboxRegionExample/Info.plist;
